@@ -1,0 +1,34 @@
+.todo-task-header {
+  text-align: center;
+  color: red;
+}
+
+.todo-task-header h2 {
+  font-size: 4vim;
+}
+
+.todo-task ul {
+  list-style-type: none;
+}
+
+.todo-task button {
+  margin: 10px;
+}
+
+.todo-task li {
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 2px 1px #888888;
+  margin: 5px;
+  background-color: whitesmoke;
+}
+
+.todo-task span {
+  padding: 10px;
+  font-size: calc(1px + 2vmin);
+}
+
+.add-task {
+  padding: 10px;
+  text-align: center;
+}

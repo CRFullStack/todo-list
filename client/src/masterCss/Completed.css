@@ -1,0 +1,30 @@
+.completed-task-header {
+  text-align: center;
+  color: green;
+}
+
+.completed-task-header h2 {
+  font-size: 4vim;
+}
+
+.completed-task ul {
+  list-style-type: none;
+}
+
+.completed-task li {
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 2px 1px #888888;
+  margin: 5px;
+  background-color: whitesmoke;
+}
+
+.completed-task span {
+  padding: 10px;
+  font-size: calc(1px + 2vmin);
+}
+
+.completed-task button {
+  margin: 10px;
+  float: right;
+}
