@@ -7,6 +7,13 @@
   background-size: cover;
   background-blend-mode: multiply;
 }
+@media only screen and (max-width: 600px) {
+  .todo-task-container {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+  }
+}
 
 .todo-task-header {
   text-align: center;
@@ -16,24 +23,4 @@
 .todo-task-header h2 {
   font-size: 4vim;
   opacity: 0.9;
-}
-
-.todo-task ul {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: flex-end;
-}
-
-.todo-task li {
-  margin-top: -5%;
-  margin-bottom: -5%;
-  padding: 10%;
-  width: 50%;
-  margin-right: auto;
-}
-
-.grid-container--fill {
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }

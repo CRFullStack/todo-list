@@ -3,10 +3,12 @@ import "../masterCss/App.css";
 import "../masterCss/ToDo.css";
 import "../masterCss/Completed.css";
 import "../masterCss/Circle.css";
+import "../masterCss/CirclesTest.css";
 import HeaderTitleComp from "../statelessComps/headerTitleComp";
 import SectionHeaderComp from "../statelessComps/sectionHeader";
 import TaskListComp from "../statelessComps/taskListComp";
 import AddTaskComp from "../statelessComps/addTaskComp";
+import TaskListTest from "../statelessComps/taskListTest";
 
 class App extends Component {
   render() {
@@ -20,11 +22,9 @@ class App extends Component {
             <SectionHeaderComp title={"To-Do"} />
           </header>
           <div className="row ">
-            <div className="todo-task col-xs-10 col-sm-10 ">
-              <TaskListComp />
+            <div>
+              <TaskListTest />
             </div>
-            <div className="col-md-1" />
-            <div className="col-md-1" />
           </div>
           <div className="row">
             <div className="col-md-3" />
@@ -46,6 +46,10 @@ class App extends Component {
             </div>
             <div className="col-md-1" />
           </div>
+        </section>
+
+        <section>
+          <TaskListTest />
         </section>
       </div>
     );
