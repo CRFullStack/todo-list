@@ -2,17 +2,35 @@ import React from "react";
 
 export default props => (
   <ul>
-    <li>
-      <span>Wash Carjsoijoidsjoisji s jsiojs; js ijsi </span>
+    <li class="circle">
+      <span class="content">Content</span>
     </li>
-    <li>
-      <span>Wash Dog</span>
+    <li class="circle">
+      <span class="content">Content</span>
     </li>
-    <li>
-      <span>Wash Carpet</span>
+    <li class="circle">
+      <span class="content">Content</span>
     </li>
-    <li>
-      <span>Wash Carpet</span>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
+    </li>
+    <li class="circle">
+      <span class="content">Content</span>
     </li>
   </ul>
 );

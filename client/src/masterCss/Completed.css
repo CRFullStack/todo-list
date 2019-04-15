@@ -1,6 +1,12 @@
+.completed-task-container {
+  border: 3px solid #00cd00;
+  border-radius: 40px;
+  margin: 10px 30%;
+}
+
 .completed-task-header {
   text-align: center;
-  color: green;
+  color: #00cd00;
 }
 
 .completed-task-header h2 {
@@ -12,19 +18,32 @@
 }
 
 .completed-task li {
-  border: 1px solid gray;
-  border-radius: 8px;
-  box-shadow: 2px 1px #888888;
-  margin: 5px;
-  background-color: whitesmoke;
+  width: 50%;
 }
 
-.completed-task span {
-  padding: 10px;
-  font-size: calc(1px + 2vmin);
+/*
+.completed-task li {
+  padding: 2px;
+  background-color: #00cd00;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  font-size: 3px;
+  color: red;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
 }
 
-.completed-task button {
-  margin: 10px;
-  float: right;
+.completed-task li:hover {
+  color: red;
+  text-decoration: none;
+  background: #00cd00;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  font-size: 3vmin;
+  text-align: center;
+  overflow-wrap: break-word;
 }
+*/

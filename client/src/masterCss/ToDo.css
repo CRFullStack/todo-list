@@ -1,34 +1,39 @@
+.todo-task-container {
+  background-image: url("../images/wrinting2.png");
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: #8d8d8d;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
 .todo-task-header {
   text-align: center;
-  color: red;
+  color: #ff1a1a;
 }
 
 .todo-task-header h2 {
   font-size: 4vim;
+  opacity: 0.9;
 }
 
 .todo-task ul {
   list-style-type: none;
-}
-
-.todo-task button {
-  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-end;
 }
 
 .todo-task li {
-  border: 1px solid gray;
-  border-radius: 8px;
-  box-shadow: 2px 1px #888888;
-  margin: 5px;
-  background-color: whitesmoke;
+  margin-top: -5%;
+  margin-bottom: -5%;
+  padding: 10%;
+  width: 50%;
+  margin-right: auto;
 }
 
-.todo-task span {
-  padding: 10px;
-  font-size: calc(1px + 2vmin);
-}
-
-.add-task {
-  padding: 10px;
-  text-align: center;
+.grid-container--fill {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
