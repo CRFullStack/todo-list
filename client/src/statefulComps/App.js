@@ -17,6 +17,7 @@ class App extends Component {
         <header className="App">
           <HeaderTitleComp title={"Task Bubble"} />
         </header>
+
         <section className="todo-task-container container-fluid">
           <header className="todo-task-header">
             <SectionHeaderComp title={"To-Do"} />
@@ -35,21 +36,8 @@ class App extends Component {
           </div>
         </section>
 
-        <section className="completed-task-container">
-          <header className="completed-task-header">
-            <SectionHeaderComp title={"Completed"} />
-          </header>
-          <div className="row">
-            <div className="col-md-1" />
-            <div className="completed-task col-sm-10">
-              <TaskListComp />
-            </div>
-            <div className="col-md-1" />
-          </div>
-        </section>
-
-        <section>
-          <TaskListTest />
+        <section className="completed-task">
+          <TaskListComp />
         </section>
       </div>
     );

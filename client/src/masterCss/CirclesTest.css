@@ -24,6 +24,13 @@
   margin: 20px;
 }
 
+.ch-grid i {
+  width: inherit;
+  height: inherit;
+  display: inline-block;
+  margin: 20px;
+}
+
 .ch-item {
   width: 100%;
   height: 100%;
@@ -52,9 +59,10 @@
   color: red;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 100%;
+  font-size: 120%;
   margin: 0 30px;
   padding: 45px 0 0 0;
+  text-align: center;
   height: 140px;
   font-family: "Open Sans", Arial, sans-serif;
   text-shadow: 0 0 1px red, 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -74,24 +82,28 @@
 }
 .ch-info p {
   color: #fff;
-  padding: 40% 10%;
+
   font-style: italic;
   margin: 0 0px;
-  font-size: 25px;
-  display: flex;
-  align-content: center;
-  align-items: center;
+  font-size: 200%;
+
   /*border-top: 1px solid rgba(255, 255, 255, 0.5);*/
   opacity: 0;
   transition: all 1s ease-in-out 0.4s;
 }
 
 .ch-info p i {
-  padding: 10%;
+  padding: 5%;
+  margin-bottom: -15%;
+  margin-top: 20%;
+  transition: all 0.3s ease-in-out;
 }
 
 .ch-info p i:hover {
-  padding: 5%;
+  transform: translate(0px, -5px);
+  -webkit-transform: translate(0, -5px); /** Chrome & Safari **/
+  -o-transform: translate(0, -5px); /** Opera **/
+  -moz-transform: translate(0, -5px); /** Firefox **/
 }
 
 .ch-info p a {
