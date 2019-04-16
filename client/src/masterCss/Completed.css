@@ -1,24 +1,21 @@
 .completed-task-container {
-  border: 3px solid #00cd00;
-  border-radius: 40px;
-  margin: 10px 30%;
 }
 
 .completed-task-header {
-  text-align: center;
   color: #00cd00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 120%;
+  margin: 0 30px;
+  padding: 45px 0 0 0;
+  text-align: center;
+  height: 140px;
+  font-family: "Open Sans", Arial, sans-serif;
+  text-shadow: 0 0 1px #00cd00, 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .completed-task-header h2 {
   font-size: 4vim;
-}
-
-.completed-task ul {
-  list-style-type: none;
-}
-
-.completed-task li {
-  width: 50%;
 }
 
 .completed-task .ch-item {
@@ -36,31 +33,5 @@
 
 .completed-task p {
   font-size: 5rem !important;
+  padding-top: 15px;
 }
-
-/*
-.completed-task li {
-  padding: 2px;
-  background-color: #00cd00;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  font-size: 3px;
-  color: red;
-  line-height: 100px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.completed-task li:hover {
-  color: red;
-  text-decoration: none;
-  background: #00cd00;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  font-size: 3vmin;
-  text-align: center;
-  overflow-wrap: break-word;
-}
-*/

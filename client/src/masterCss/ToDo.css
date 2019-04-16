@@ -1,10 +1,8 @@
 .todo-task-container {
   background-image: url("../images/wrinting2.png");
-  background-size: cover;
-  min-height: 100vh;
-  min-width: 100%;
-  background-size: cover;
-  background-blend-mode: multiply;
+  min-height: 40vh;
+  width: 100%;
+  background-repeat: no-repeat;
 }
 @media only screen and (max-width: 600px) {
   .todo-task-container {
@@ -15,8 +13,16 @@
 }
 
 .todo-task-header {
-  text-align: center;
   color: #ff1a1a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 120%;
+  margin: 0 30px;
+  padding: 45px 0 0 0;
+  text-align: center;
+  height: 140px;
+  font-family: "Open Sans", Arial, sans-serif;
+  text-shadow: 0 0 1px #ff1a1a, 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .todo-task-header h2 {
