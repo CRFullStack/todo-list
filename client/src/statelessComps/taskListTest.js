@@ -4,14 +4,12 @@ export default props => (
   <ul class="ch-grid">
     <li>
       <div class="ch-item ch-img-1">
-        <h4>
-          Front title cool1 cool2 cool3 coool4 cool5 cool6 cool7 cool8 coll9
-          cool10
-        </h4>
+        <h4>Wash Car</h4>
         <div class="ch-info">
-          <h3>Use what you have</h3>
           <p>
-            by Angela Duncan <a href="http://drbl.in/eOPF">View on Dribbble</a>
+            <i class="fas fa-check" />
+            <i class="fas fa-times" />
+            <i class="far fa-edit" />
           </p>
         </div>
       </div>
