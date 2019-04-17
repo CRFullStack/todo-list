@@ -8,6 +8,8 @@ import SectionHeaderComp from "../statelessComps/sectionHeader";
 import CompletedTask from "../statelessComps/completedTask";
 import AddTaskComp from "../statelessComps/addTaskComp";
 import TodoTask from "../statelessComps/todoTask";
+import { setName } from "../redux/actions/userActions"; //pulls actions to dispatch
+import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
   render() {
@@ -53,4 +55,29 @@ class App extends Component {
   }
 }
 
-export default App;
+// Map state to props gets the props from the store
+// now state can be accessed and passed down to props like so:
+// <User username={this.props.user.name}/>
+// this *.*.user.name came from our reducer below
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer,
+    math: state.mathReducer
+  };
+};
+
+// This maps the actions from the reducer
+// it can be accessed like so:
+// <Main setName={(name) => this.props.setName(name)}/>
+const mapDispatchToProps = dispatch => {
+  return {
+    setName: name => {
+      dispatch(setName(name));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
