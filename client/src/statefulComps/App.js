@@ -18,7 +18,6 @@ class App extends Component {
         </section>
 
         <section className=" container-fluid">
-          <div className="todo-task-container parallax" />
           <header className="todo-task-header">
             <SectionHeaderComp title={"To-Do"} />
           </header>
@@ -37,6 +36,8 @@ class App extends Component {
           <br />
         </section>
 
+        <div className="todo-task-container parallax" />
+
         <section className="completed-task completed-task-container container-fluid">
           <header className="completed-task-header">
             <SectionHeaderComp title={"Completed"} />
@@ -46,7 +47,6 @@ class App extends Component {
               <CompletedTask />
             </div>
           </div>
-          <div className="todo-task-container parallax" />
         </section>
       </div>
     );

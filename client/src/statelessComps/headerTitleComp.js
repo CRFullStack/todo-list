@@ -5,13 +5,24 @@ export default props => (
     <div className="App" />
     <div className="bg-text">
       <h1>{props.title}</h1>
-      <h4>Popping off task one bubble at a time</h4>
       <p>Instructions: </p>
-      <p>
-        Add a task. The red bubbles are incomplete task, while the green bubbles
-        mean complete.
-      </p>
-      <p>Hover over the task to mark it complete, edit it, or delete it!</p>
+      <ul>
+        <li>Add a task.</li>
+        <li>The incomplete task show up as red bubbles.</li>
+        <li>Hover over the bubbles to bring up actions.</li>
+        <li>
+          The <i class="far fa-edit" /> will let you edit a task.
+        </li>
+        <li>
+          The <i class="fas fa-check" /> will let you move task to the completed
+          section.
+        </li>
+        <li>Completed task show up as green bubbles</li>
+        <li>
+          The <i class="fas fa-times" /> removes task completely
+        </li>
+      </ul>
+      <p>Happy Popping!</p>
     </div>
   </header>
 );
