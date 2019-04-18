@@ -6,9 +6,10 @@ import "../masterCss/Circle.css";
 import HeaderTitleComp from "../statelessComps/headerTitleComp";
 import SectionHeaderComp from "../statelessComps/sectionHeader";
 import CompletedTask from "../statelessComps/completedTask";
-import AddTaskComp from "../statelessComps/addTaskComp";
+import AddTaskComp from "./addTaskComp";
 import TodoTask from "../statelessComps/todoTask";
 import { setName } from "../redux/actions/userActions"; //pulls actions to dispatch
+import { addTask } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
@@ -62,7 +63,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     user: state.userReducer,
-    math: state.mathReducer
+    math: state.mathReducer,
+    task: state.reducer
   };
 };
 
@@ -73,6 +75,9 @@ const mapDispatchToProps = dispatch => {
   return {
     setName: name => {
       dispatch(setName(name));
+    },
+    addTask: task => {
+      dispatch(addTask(task));
     }
   };
 };
