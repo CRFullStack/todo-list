@@ -11,15 +11,15 @@ export default props => (
         <li>The incomplete task show up as red bubbles.</li>
         <li>Hover over the bubbles to bring up actions.</li>
         <li>
-          The <i class="far fa-edit" /> will let you edit a task.
+          The <i className="far fa-edit" /> will let you edit a task.
         </li>
         <li>
-          The <i class="fas fa-check" /> will let you move task to the completed
-          section.
+          The <i className="fas fa-check" /> will let you move task to the
+          completed section.
         </li>
         <li>Completed task show up as green bubbles</li>
         <li>
-          The <i class="fas fa-times" /> removes task completely
+          The <i className="fas fa-times" /> removes task completely
         </li>
       </ul>
       <p>Happy Popping!</p>

@@ -1,78 +1,24 @@
 import React from "react";
 
 export default props => (
-  <ul class="ch-grid">
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Help mom clean the living room</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Get deoderant</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Pick up key for the other house</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Help mom clean the living room</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Get deoderant</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="ch-item ch-img-1">
-        <h4>Pick up key for the other house</h4>
-        <div class="ch-info">
-          <p>
-            <i class="fas fa-check" />
-            <i class="fas fa-times" />
-            <i class="far fa-edit" />
-          </p>
-        </div>
-      </div>
-    </li>
+  <ul className="ch-grid">
+    {props.todoArr.map(arr => {
+      if (arr.completed === false) {
+        return (
+          <li key={arr.id}>
+            <div className="ch-item ch-img-1">
+              <h4>{arr.task}</h4>
+              <div className="ch-info">
+                <p>
+                  <i className="fas fa-check" />
+                  <i className="fas fa-times" />
+                  <i className="far fa-edit" />
+                </p>
+              </div>
+            </div>
+          </li>
+        );
+      }
+    })}
   </ul>
 );

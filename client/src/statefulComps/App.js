@@ -13,11 +13,15 @@ import { addTask } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
+  componentDidMount() {
+    // dispatch action to make make api request here
+  }
+
   render() {
     return (
       <div className="master-container">
         <section>
-          <HeaderTitleComp title={"Task Bubble"} />
+          <HeaderTitleComp title={"Task Bubblesss"} />
         </section>
 
         <section className=" container-fluid">
@@ -33,7 +37,7 @@ class App extends Component {
           </div>
           <div className="row ">
             <div>
-              <TodoTask />
+              <TodoTask todoArr={this.props.todos.task} />
             </div>
           </div>
           <br />
@@ -47,7 +51,7 @@ class App extends Component {
           </header>
           <div className="row">
             <div>
-              <CompletedTask />
+              <CompletedTask todoArr={this.props.todos.task} />
             </div>
           </div>
         </section>
@@ -62,9 +66,7 @@ class App extends Component {
 // this *.*.user.name came from our reducer below
 const mapStateToProps = state => {
   return {
-    user: state.userReducer,
-    math: state.mathReducer,
-    task: state.reducer
+    todos: state.listReducer
   };
 };
 
@@ -73,9 +75,6 @@ const mapStateToProps = state => {
 // <Main setName={(name) => this.props.setName(name)}/>
 const mapDispatchToProps = dispatch => {
   return {
-    setName: name => {
-      dispatch(setName(name));
-    },
     addTask: task => {
       dispatch(addTask(task));
     }

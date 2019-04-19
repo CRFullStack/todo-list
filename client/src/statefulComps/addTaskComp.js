@@ -7,7 +7,12 @@ class AddTask extends Component {
     return (
       <form action="/action_page.php">
         Add Task:{" "}
-        <input type="text" name="fname" value={this.props.task.addTask} />
+        <input
+          type="text"
+          name="fname"
+          value={this.props.task.addTask}
+          onChange={evt => this.props.addTask(evt)}
+        />
         <input type="submit" value="Submit" />
       </form>
     );
@@ -20,7 +25,7 @@ class AddTask extends Component {
 // this *.*.user.name came from our reducer below
 const mapStateToProps = state => {
   return {
-    task: state.reducer
+    task: state.addTaskReducer
   };
 };
 
