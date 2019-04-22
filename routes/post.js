@@ -2,10 +2,12 @@ var express = require("express");
 var router = express.Router();
 var TaskModel = require("../db/models/taskList");
 var mongodb = require("mongodb");
+const cors = require("cors");
 
-router.post("/create-task", (req, res) => {
-  let _newTask = req.body.newTask;
-  if (_newTask !== null && _newTask.length > 0) {
+router.post("/create-task", cors(), (req, res) => {
+  let _newTask = req.body.addTask;
+  console.log(`The task is: ${_newTask}`);
+  if (_newTask !== undefined && _newTask !== "") {
     taskmodel = new TaskModel({
       task: _newTask
     });

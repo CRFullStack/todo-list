@@ -1,21 +1,5 @@
 const initialState = {
-  task: [
-    {
-      id: 1,
-      task: "wash car",
-      completed: false
-    },
-    {
-      id: 2,
-      task: "clean room",
-      completed: false
-    },
-    {
-      id: 3,
-      task: "feed cat",
-      completed: true
-    }
-  ]
+  task: []
 };
 
 // When the reducer receives an action from dispach,
@@ -32,6 +16,9 @@ const listReducer = (state = initialState, action) => {
   if (action.type === "ADD_TASK") {
     newState.addTask = action.payload.target.value;
     console.log(newState.addTask);
+  }
+  if (action.type === "GET_TASK_ACTION") {
+    newState.task = action.payload;
   }
 
   return newState;

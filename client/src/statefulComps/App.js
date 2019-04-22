@@ -10,11 +10,13 @@ import AddTaskComp from "./addTaskComp";
 import TodoTask from "../statelessComps/todoTask";
 import { setName } from "../redux/actions/userActions"; //pulls actions to dispatch
 import { addTask } from "../redux/actions/addTaskActions";
+import { getTaskAction } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
   componentDidMount() {
     // dispatch action to make make api request here
+    this.props.getTaskAction();
   }
 
   render() {
@@ -66,7 +68,8 @@ class App extends Component {
 // this *.*.user.name came from our reducer below
 const mapStateToProps = state => {
   return {
-    todos: state.listReducer
+    todos: state.listReducer,
+    addTaskStore: state.addTaskReducer
   };
 };
 
@@ -77,6 +80,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addTask: task => {
       dispatch(addTask(task));
+    },
+    getTaskAction: () => {
+      dispatch(getTaskAction());
     }
   };
 };

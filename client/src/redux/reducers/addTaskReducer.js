@@ -1,8 +1,9 @@
 const initialState = {
   age: 21,
   complexion: "black",
-  task: ["wash car", "clean room", "feed cat"],
-  addTask: ""
+  task: [],
+  addTask: "",
+  message: ""
 };
 
 // When the reducer receives an action from dispach,
@@ -19,6 +20,12 @@ const addTaskReducer = (state = initialState, action) => {
   if (action.type === "ADD_TASK") {
     newState.addTask = action.payload.target.value;
     console.log(newState.addTask);
+  }
+  if (action.type === "SUBMIT_TASK") {
+    newState.addTask = "";
+  }
+  if (action.type === "TEST_ACTION") {
+    newState.message = action.payload;
   }
 
   return newState;

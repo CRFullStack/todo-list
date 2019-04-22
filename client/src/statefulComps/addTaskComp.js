@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import { addTask } from "../redux/actions/addTaskActions";
+import { submitTask } from "../redux/actions/addTaskActions";
+import { testAction } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class AddTask extends Component {
+  submitTaskCall(e) {
+    e.preventDefault();
+    let dataFromStore = this.props.task;
+    this.props.submitTask(dataFromStore);
+  }
+
   render() {
     return (
-      <form action="/action_page.php">
+      <form action="#">
         Add Task:{" "}
         <input
           type="text"
@@ -13,7 +21,11 @@ class AddTask extends Component {
           value={this.props.task.addTask}
           onChange={evt => this.props.addTask(evt)}
         />
-        <input type="submit" value="Submit" />
+        <input
+          type="submit"
+          value="Submit"
+          onClick={e => this.submitTaskCall(e)}
+        />
       </form>
     );
   }
@@ -36,6 +48,12 @@ const mapDispatchToProps = dispatch => {
   return {
     addTask: task => {
       dispatch(addTask(task));
+    },
+    submitTask: store => {
+      dispatch(submitTask(store));
+    },
+    testAction: e => {
+      dispatch(testAction(e));
     }
   };
 };

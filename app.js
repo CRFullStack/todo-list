@@ -8,6 +8,7 @@ var getRouter = require("./routes/get");
 var deleteRouter = require("./routes/delete");
 const postRouter = require("./routes/post");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 var app = express();
 
@@ -19,6 +20,7 @@ mongoose
   .then(() => console.log("connection succesful"))
   .catch(err => console.error(err));
 
+app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: false
