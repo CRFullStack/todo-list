@@ -14,21 +14,4 @@ router.get("/all-task", cors(), (req, res) => {
   TaskModel.find().then(data => res.json(data));
 });
 
-router.get("/completed-task", (req, res) => {
-  let _taskId = req.body.taskId;
-
-  TaskModel.findOne({ _id: _taskId })
-    .then(() => {
-      TaskModel.update(
-        { _id: _taskId },
-        {
-          $set: { completed: true }
-        }
-      )
-        .then(() => TaskModel.find().then(data => res.json(data)))
-        .catch(err => res.json(err));
-    })
-    .catch(err => res.json({ error: err, message: "Couldn't find ID!" }));
-});
-
 module.exports = router;

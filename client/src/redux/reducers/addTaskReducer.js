@@ -27,6 +27,9 @@ const addTaskReducer = (state = initialState, action) => {
   if (action.type === "TEST_ACTION") {
     newState.message = action.payload;
   }
+  if (action.type === "REST_ACTION") {
+    newState.addTask = action.payload;
+  }
 
   return newState;
 };

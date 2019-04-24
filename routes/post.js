@@ -37,4 +37,23 @@ router.post("/update-task", (req, res) => {
     })
     .catch(err => res.json({ error: err, message: "Couldn't find ID!" }));
 });
+
+router.post("/completed-task", cors(), (req, res) => {
+  let _taskId = req.body.taskId;
+  console.log(`The id is backend: ${_taskId}`);
+
+  TaskModel.findOne({ _id: _taskId })
+    .then(() => {
+      TaskModel.updateOne(
+        { _id: _taskId },
+        {
+          $set: { completed: true }
+        }
+      )
+        .then(() => TaskModel.find().then(data => res.json(data)))
+        .catch(err => res.json(err));
+    })
+    .catch(err => res.json({ error: err, message: "Couldn't find ID!" }));
+});
+
 module.exports = router;

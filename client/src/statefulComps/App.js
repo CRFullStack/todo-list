@@ -11,6 +11,8 @@ import TodoTask from "../statelessComps/todoTask";
 import { setName } from "../redux/actions/userActions"; //pulls actions to dispatch
 import { addTask } from "../redux/actions/addTaskActions";
 import { getTaskAction } from "../redux/actions/addTaskActions";
+import { markTaskCompleted } from "../redux/actions/addTaskActions";
+import { deleteTask } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
@@ -18,6 +20,18 @@ class App extends Component {
     // dispatch action to make make api request here
     this.props.getTaskAction();
   }
+
+  markTaskCompleted = id => {
+    let _id = id;
+    console.log(`The obj is function: ${_id}`);
+    console.log(`The id is function: ${_id.taskId}`);
+    this.props.markCompleted(_id);
+  };
+
+  deleteTaskCall = id => {
+    let _id = id;
+    this.props.deleteTask(_id);
+  };
 
   render() {
     return (
@@ -39,13 +53,16 @@ class App extends Component {
           </div>
           <div className="row ">
             <div>
-              <TodoTask todoArr={this.props.todos.task} />
+              <TodoTask
+                todoArr={this.props.todos.task}
+                addTaskObj={{ taskId: "" }}
+                taskCompleted={this.markTaskCompleted}
+                deleteTask={this.deleteTaskCall}
+              />
             </div>
           </div>
           <br />
         </section>
-
-        <div className="todo-task-container parallax" />
 
         <section className="completed-task completed-task-container container-fluid">
           <header className="completed-task-header">
@@ -53,7 +70,13 @@ class App extends Component {
           </header>
           <div className="row">
             <div>
-              <CompletedTask todoArr={this.props.todos.task} />
+              <CompletedTask
+                todoArr={this.props.todos.task}
+                todoArr={this.props.todos.task}
+                addTaskObj={{ taskId: "" }}
+                taskCompleted={this.markTaskCompleted}
+                deleteTask={this.deleteTaskCall}
+              />
             </div>
           </div>
         </section>
@@ -83,6 +106,12 @@ const mapDispatchToProps = dispatch => {
     },
     getTaskAction: () => {
       dispatch(getTaskAction());
+    },
+    markCompleted: id => {
+      dispatch(markTaskCompleted(id));
+    },
+    deleteTask: id => {
+      dispatch(deleteTask(id));
     }
   };
 };

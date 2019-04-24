@@ -10,7 +10,13 @@ export default props => (
               <h4>{arr.task}</h4>
               <div className="ch-info">
                 <p>
-                  <i className="fas fa-times" />
+                  <i
+                    className="fas fa-times"
+                    onClick={() => {
+                      props.addTaskObj.taskId = arr._id;
+                      props.deleteTask(props.addTaskObj);
+                    }}
+                  />
                 </p>
               </div>
             </div>

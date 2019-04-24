@@ -8,6 +8,26 @@ export function addTask(task) {
   };
 }
 
+export function markTaskCompleted(id) {
+  return function(dispatch) {
+    {
+      console.log(`actions id: ${id}`);
+    }
+    axios
+      .post(`${API_URL}/post/completed-task`, id)
+      .then(response => {
+        console.log(`posted data, response: ${response}`);
+        dispatch({
+          type: "MARKTASKCOMPLETED_ACTION",
+          payload: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+}
+
 export function submitTask(dataFromStore) {
   console.log(dataFromStore);
   return function(dispatch) {
@@ -17,6 +37,37 @@ export function submitTask(dataFromStore) {
         dispatch({
           type: "GET_TASK_ACTION",
           payload: response.data
+        });
+      })
+      .then(() => {
+        dispatch({
+          type: "REST_ACTION",
+          payload: ""
+        });
+      })
+
+      .catch(error => {
+        console.log(error);
+      });
+  };
+}
+
+export function deleteTask(id) {
+  console.log(`actions: ${id}`);
+  console.log(`actions prop: ${id.taskId}`);
+  return function(dispatch) {
+    axios({
+      method: "delete",
+      url: `${API_URL}/delete/delete-task`,
+      data: id,
+      params: {
+        force: true
+      }
+    })
+      .then(res => {
+        dispatch({
+          type: "DELETE_ACTION",
+          payload: res.data
         });
       })
       .catch(error => {

@@ -51,9 +51,6 @@ const mapDispatchToProps = dispatch => {
     },
     submitTask: store => {
       dispatch(submitTask(store));
-    },
-    testAction: e => {
-      dispatch(testAction(e));
     }
   };
 };
