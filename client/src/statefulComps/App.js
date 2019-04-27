@@ -6,31 +6,50 @@ import "../masterCss/Circle.css";
 import HeaderTitleComp from "../statelessComps/headerTitleComp";
 import SectionHeaderComp from "../statelessComps/sectionHeader";
 import CompletedTask from "../statelessComps/completedTask";
-import AddTaskComp from "./addTaskComp";
+import AddTaskComp from "../statelessComps/addTaskComp";
 import TodoTask from "../statelessComps/todoTask";
-import { setName } from "../redux/actions/userActions"; //pulls actions to dispatch
-import { addTask } from "../redux/actions/addTaskActions";
+
+import { addTaskAction } from "../redux/actions/addTaskActions";
+import { submitTaskAction } from "../redux/actions/addTaskActions";
 import { getTaskAction } from "../redux/actions/addTaskActions";
-import { markTaskCompleted } from "../redux/actions/addTaskActions";
-import { deleteTask } from "../redux/actions/addTaskActions";
+import { taskCompletedAction } from "../redux/actions/addTaskActions";
+import { deleteTaskAction } from "../redux/actions/addTaskActions";
+import { updateTaskAction } from "../redux/actions/addTaskActions";
 import { connect } from "react-redux"; //bridge for react-redux
 
 class App extends Component {
   componentDidMount() {
     // dispatch action to make make api request here
-    this.props.getTaskAction();
+    this.props.getTask();
   }
 
-  markTaskCompleted = id => {
+  addTaskCall = e => {
+    e.preventDefault();
+    this.props.addTask(e);
+  };
+
+  submitTaskCall = e => {
+    e.preventDefault();
+    let dataFromStore = this.props.taskStore;
+    this.props.submitTask(dataFromStore);
+  };
+
+  taskCompletedCall = id => {
     let _id = id;
     console.log(`The obj is function: ${_id}`);
     console.log(`The id is function: ${_id.taskId}`);
-    this.props.markCompleted(_id);
+    this.props.taskCompleted(_id);
   };
 
   deleteTaskCall = id => {
     let _id = id;
     this.props.deleteTask(_id);
+  };
+
+  updateTaskCall = id => {
+    let _task = prompt(`Update the task: `);
+    id.updateTask = _task;
+    this.props.updateTask(id);
   };
 
   render() {
@@ -47,17 +66,22 @@ class App extends Component {
           <div className="row">
             <div className="col-md-3" />
             <div className="add-task col-sm-6 text-md-center">
-              <AddTaskComp />
+              <AddTaskComp
+                submitTaskCall={this.submitTaskCall}
+                addTaskCall={this.addTaskCall}
+                taskInputField={this.props.taskStore.taskInput}
+              />
             </div>
             <div className="col-md-3" />
           </div>
           <div className="row ">
             <div>
               <TodoTask
-                todoArr={this.props.todos.task}
+                allTask={this.props.taskStore.task}
                 addTaskObj={{ taskId: "" }}
-                taskCompleted={this.markTaskCompleted}
+                taskCompleted={this.taskCompletedCall}
                 deleteTask={this.deleteTaskCall}
+                updateTask={this.updateTaskCall}
               />
             </div>
           </div>
@@ -71,10 +95,8 @@ class App extends Component {
           <div className="row">
             <div>
               <CompletedTask
-                todoArr={this.props.todos.task}
-                todoArr={this.props.todos.task}
+                allTask={this.props.taskStore.task}
                 addTaskObj={{ taskId: "" }}
-                taskCompleted={this.markTaskCompleted}
                 deleteTask={this.deleteTaskCall}
               />
             </div>
@@ -91,8 +113,7 @@ class App extends Component {
 // this *.*.user.name came from our reducer below
 const mapStateToProps = state => {
   return {
-    todos: state.listReducer,
-    addTaskStore: state.addTaskReducer
+    taskStore: state.addTaskReducer
   };
 };
 
@@ -102,16 +123,22 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addTask: task => {
-      dispatch(addTask(task));
+      dispatch(addTaskAction(task));
     },
-    getTaskAction: () => {
+    getTask: () => {
       dispatch(getTaskAction());
     },
-    markCompleted: id => {
-      dispatch(markTaskCompleted(id));
+    taskCompleted: id => {
+      dispatch(taskCompletedAction(id));
     },
     deleteTask: id => {
-      dispatch(deleteTask(id));
+      dispatch(deleteTaskAction(id));
+    },
+    updateTask: (_id, _task) => {
+      dispatch(updateTaskAction(_id, _task));
+    },
+    submitTask: store => {
+      dispatch(submitTaskAction(store));
     }
   };
 };

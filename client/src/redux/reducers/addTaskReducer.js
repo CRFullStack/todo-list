@@ -2,7 +2,7 @@ const initialState = {
   age: 21,
   complexion: "black",
   task: [],
-  addTask: "",
+  taskInput: "",
   message: ""
 };
 
@@ -11,24 +11,27 @@ const addTaskReducer = (state = initialState, action) => {
   const newState = { ...state };
 
   // Our dispach actions go here
-  if (action.type === "AGE_UP") {
-    newState.age++;
-  }
-  if (action.type === "AGE_DOWN") {
-    newState.age--;
-  }
-  if (action.type === "ADD_TASK") {
-    newState.addTask = action.payload.target.value;
-    console.log(newState.addTask);
-  }
+
   if (action.type === "SUBMIT_TASK") {
-    newState.addTask = "";
+    newState.taskInput = "";
   }
   if (action.type === "TEST_ACTION") {
     newState.message = action.payload;
   }
   if (action.type === "REST_ACTION") {
-    newState.addTask = action.payload;
+    newState.taskInput = action.payload;
+  }
+  if (action.type === "ADD_TASK") {
+    newState.addTask = action.payload.target.value;
+  }
+  if (action.type === "GET_TASK_ACTION") {
+    newState.task = action.payload;
+  }
+  if (action.type === "MARKTASKCOMPLETED_ACTION") {
+    newState.task = action.payload;
+  }
+  if (action.type === "DELETE_ACTION") {
+    newState.task = action.payload;
   }
 
   return newState;

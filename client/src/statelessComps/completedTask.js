@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => (
   <ul className="ch-grid">
-    {props.todoArr.map(arr => {
+    {props.allTask.map(arr => {
       if (arr.completed === true) {
         return (
           <li key={arr.id}>

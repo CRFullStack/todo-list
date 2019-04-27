@@ -3,7 +3,7 @@ import React from "react";
 export default props => (
   <ul className="ch-grid">
     {console.log(props.todoArr)}
-    {props.todoArr.map(arr => {
+    {props.allTask.map(arr => {
       if (arr.completed === false) {
         return (
           <li key={arr._id}>
@@ -15,9 +15,9 @@ export default props => (
                     className="fas fa-check"
                     onClick={() => {
                       props.addTaskObj.taskId = arr._id;
-                      console.log(
-                        `todoTask.js obj: ${props.addTaskObj.taskId}`
-                      );
+                      // console.log(
+                      //   `todoTask.js obj: ${props.addTaskObj.taskId}`
+                      // );
                       props.taskCompleted(props.addTaskObj);
                     }}
                   />
@@ -28,7 +28,13 @@ export default props => (
                       props.deleteTask(props.addTaskObj);
                     }}
                   />
-                  <i className="far fa-edit" />
+                  <i
+                    className="far fa-edit"
+                    onClick={() => {
+                      props.addTaskObj.taskId = arr._id;
+                      props.updateTask(props.addTaskObj);
+                    }}
+                  />
                 </p>
               </div>
             </div>
