@@ -14,7 +14,7 @@ export function updateTaskAction(id) {
     //   console.log(`actions id: ${id}`);
     // }
     axios
-      .post(`${API_URL}/post/update-task`, id)
+      .post(`/post/update-task`, id)
       .then(response => {
         console.log(`posted data, response: ${response}`);
         dispatch({
@@ -34,7 +34,7 @@ export function taskCompletedAction(id) {
     //   console.log(`actions id: ${id}`);
     // }
     axios
-      .post(`${API_URL}/post/completed-task`, id)
+      .post(`/post/completed-task`, id)
       .then(response => {
         console.log(`posted data, response: ${response}`);
         dispatch({
@@ -52,7 +52,7 @@ export function submitTaskAction(dataFromStore) {
   console.log(dataFromStore);
   return function(dispatch) {
     axios
-      .post(`${API_URL}/post/create-task`, dataFromStore)
+      .post(`/post/create-task`, dataFromStore)
       .then(response => {
         dispatch({
           type: "GET_TASK_ACTION",
@@ -76,7 +76,7 @@ export function deleteTaskAction(id) {
   return function(dispatch) {
     axios({
       method: "delete",
-      url: `${API_URL}/delete/delete-task`,
+      url: `/delete/delete-task`,
       data: id,
       params: {
         force: true
@@ -94,27 +94,10 @@ export function deleteTaskAction(id) {
   };
 }
 
-export function testAction(e) {
-  return function(dispatch) {
-    e.preventDefault();
-    axios
-      .get(`${API_URL}`)
-      .then(response => {
-        dispatch({
-          type: "TEST_ACTION",
-          payload: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-}
-
 export function getTaskAction() {
   return function(dispatch) {
     axios
-      .get(`${API_URL}/get/all-task`)
+      .get(`/get/all-task`)
       .then(response => {
         dispatch({
           type: "GET_TASK_ACTION",
