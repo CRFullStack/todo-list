@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => (
   <ul className="ch-grid">
-    {props.todoArr.map(arr => {
+    {props.allTask.map(arr => {
       if (arr.completed === true) {
         return (
           <li key={arr.id}>
@@ -10,7 +10,13 @@ export default props => (
               <h4>{arr.task}</h4>
               <div className="ch-info">
                 <p>
-                  <i className="fas fa-times" />
+                  <i
+                    className="fas fa-times"
+                    onClick={() => {
+                      props.addTaskObj.taskId = arr._id;
+                      props.deleteTask(props.addTaskObj);
+                    }}
+                  />
                 </p>
               </div>
             </div>

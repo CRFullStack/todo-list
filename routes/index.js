@@ -5,13 +5,8 @@ var mongodb = require("mongodb");
 const cors = require("cors");
 
 /* GET home page. */
-router.get("/", function(req, res, next) {
-  res.json({ message: "Connected!" });
-});
-
-// desc: returns all the task
-router.get("/all-task", cors(), (req, res) => {
-  TaskModel.find().then(data => res.json(data));
+router.get("/*", cors(), (req, res) => {
+  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
 module.exports = router;
